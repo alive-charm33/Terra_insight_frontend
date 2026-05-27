@@ -90,7 +90,7 @@ export default function DetailPanel({ item, onClose }) {
       {/* Detail Header */}
       <div className="detail-header">
         <div className="detail-title-wrapper">
-          <span className="badge" style={{ marginBottom: '0.5rem', backgroundColor: 'rgba(99, 102, 241, 0.15)', color: 'var(--color-indigo)' }}>
+          <span className="badge active" style={{ marginBottom: '0.5rem' }}>
             {item.category}
           </span>
           <h3 id="detail-item-name">{item.item}</h3>
@@ -128,7 +128,7 @@ export default function DetailPanel({ item, onClose }) {
         </div>
         <div className="meta-card">
           <div className="meta-label">Zero Demand Weeks</div>
-          <div className="meta-value" id="detail-zero-weeks" style={{ color: zeroWeeks > 0 ? 'var(--status-amber)' : 'inherit' }}>
+          <div className="meta-value" id="detail-zero-weeks" style={{ color: zeroWeeks > 0 ? '#b45309' : 'inherit' }}>
             {zeroWeeks} {zeroWeeks === 1 ? 'week' : 'weeks'}
           </div>
         </div>
@@ -271,29 +271,29 @@ export default function DetailPanel({ item, onClose }) {
       </div>
 
       {/* Complete Weekly Demands Grid */}
-      <div className="glass-panel" style={{ padding: '1rem', backgroundColor: 'rgba(0, 0, 0, 0.15)' }}>
-        <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '0.75rem', fontWeight: 600 }}>Weekly Demands Breakdown</h4>
+      <div className="glass-panel" style={{ padding: '1rem', backgroundColor: '#f8fafc' }}>
+        <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: '#64748b', marginBottom: '0.75rem', fontWeight: 600 }}>Weekly Demands Breakdown</h4>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem' }}>
           {weeklyDemand.map((val, idx) => {
             const ratio = val / target;
-            let valColor = 'var(--text-primary)';
-            if (val === 0) valColor = 'var(--status-red)';
-            else if (ratio >= 0.9) valColor = 'var(--status-green)';
-            else if (ratio >= 0.5) valColor = 'var(--status-amber)';
-            else valColor = 'var(--status-red)';
+            let valColor = '#1e293b';
+            if (val === 0) valColor = '#b91c1c';
+            else if (ratio >= 0.9) valColor = '#15803d';
+            else if (ratio >= 0.5) valColor = '#b45309';
+            else valColor = '#b91c1c';
 
             return (
               <div
                 key={idx}
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                  border: '1px solid var(--border-color)',
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '6px',
                   padding: '0.5rem',
                   textAlign: 'center'
                 }}
               >
-                <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontWeight: 600 }}>W{idx + 1}</div>
+                <div style={{ fontSize: '0.65rem', color: '#64748b', fontWeight: 600 }}>W{idx + 1}</div>
                 <div style={{ fontSize: '1rem', fontWeight: 700, color: valColor }}>{val}</div>
               </div>
             );

@@ -83,18 +83,7 @@ export default function App() {
   };
 
   // --- FILTER & SORT EXECUTION ---
-  const filteredItems = items.filter((item) => {
-    // Search query match (item name)
-    const matchesSearch = item.item.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    // Category match
-    const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
-    
-    // Status match
-    const matchesStatus = selectedStatuses.includes(item.status);
-    
-    return matchesSearch && matchesCategory && matchesStatus;
-  });
+  const filteredItems = items;
 
   const sortedItems = [...filteredItems].sort((a, b) => {
     if (!sortBy) return 0;
@@ -130,7 +119,7 @@ export default function App() {
       <header className="app-header">
         <div className="brand-section">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <BarChart2 style={{ color: 'var(--color-indigo)' }} size={28} />
+            <BarChart2 style={{ color: '#2563eb' }} size={28} />
             <h1 className="brand-title">TerraInsight</h1>
           </div>
           <span className="brand-subtitle">Weekly Demand Grid — Operations Planning Dashboard</span>
