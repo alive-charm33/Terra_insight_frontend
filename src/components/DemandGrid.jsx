@@ -28,10 +28,10 @@ export default function DemandGrid({
       : <ArrowDown className="sort-indicator" size={12} />;
   };
 
-  // Render header cell with click-to-sort logic
   const renderSortHeader = (label, field, className = '') => {
     return (
       <th
+        key={field}
         className={`sortable ${className}`}
         onClick={() => onSort(field)}
         style={{ whiteSpace: 'nowrap' }}
